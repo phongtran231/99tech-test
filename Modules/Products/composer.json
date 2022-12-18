@@ -1,0 +1,9 @@
+{
+    "name": "s5k/products",
+    "description": "",
+    "autoload": {
+        "psr-4": {
+            "Modules\\Products\\": ""
+        }
+    }
+}

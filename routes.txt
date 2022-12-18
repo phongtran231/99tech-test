@@ -1,0 +1,32 @@
++--------+-----------+-------------------------------+------------------+------------------------------------------------------------------+------------------------------------------+
+| Domain | Method    | URI                           | Name             | Action                                                           | Middleware                               |
++--------+-----------+-------------------------------+------------------+------------------------------------------------------------------+------------------------------------------+
+|        | GET|HEAD  | /                             |                  | Closure                                                          | web                                      |
+|        | GET|HEAD  | admin                         |                  | Modules\Admin\Http\Controllers\AdminController@index             | web                                      |
+|        |           |                               |                  |                                                                  | App\Http\Middleware\Authenticate:web     |
+|        | GET|HEAD  | admin/login                   | login            | Modules\Admin\Http\Controllers\AuthController@index              | web                                      |
+|        | POST      | admin/login                   | login.post       | Modules\Admin\Http\Controllers\AuthController@authenticate       | web                                      |
+|        | GET|HEAD  | admin/products                | products.index   | Modules\Products\Http\Controllers\ProductsController@index       | web                                      |
+|        |           |                               |                  |                                                                  | App\Http\Middleware\Authenticate:web     |
+|        | POST      | admin/products                | products.store   | Modules\Products\Http\Controllers\ProductsController@store       | web                                      |
+|        |           |                               |                  |                                                                  | App\Http\Middleware\Authenticate:web     |
+|        | GET|HEAD  | admin/products/create         | products.create  | Modules\Products\Http\Controllers\ProductsController@create      | web                                      |
+|        |           |                               |                  |                                                                  | App\Http\Middleware\Authenticate:web     |
+|        | GET|HEAD  | admin/products/list           | products.list    | Modules\Products\Http\Controllers\ProductsController@getProducts | web                                      |
+|        |           |                               |                  |                                                                  | App\Http\Middleware\Authenticate:web     |
+|        | GET|HEAD  | admin/products/{product}      | products.show    | Modules\Products\Http\Controllers\ProductsController@show        | web                                      |
+|        |           |                               |                  |                                                                  | App\Http\Middleware\Authenticate:web     |
+|        | PUT|PATCH | admin/products/{product}      | products.update  | Modules\Products\Http\Controllers\ProductsController@update      | web                                      |
+|        |           |                               |                  |                                                                  | App\Http\Middleware\Authenticate:web     |
+|        | DELETE    | admin/products/{product}      | products.destroy | Modules\Products\Http\Controllers\ProductsController@destroy     | web                                      |
+|        |           |                               |                  |                                                                  | App\Http\Middleware\Authenticate:web     |
+|        | GET|HEAD  | admin/products/{product}/edit | products.edit    | Modules\Products\Http\Controllers\ProductsController@edit        | web                                      |
+|        |           |                               |                  |                                                                  | App\Http\Middleware\Authenticate:web     |
+|        | GET|HEAD  | api/admin                     |                  | Closure                                                          | api                                      |
+|        |           |                               |                  |                                                                  | App\Http\Middleware\Authenticate:api     |
+|        | GET|HEAD  | api/products                  |                  | Closure                                                          | api                                      |
+|        |           |                               |                  |                                                                  | App\Http\Middleware\Authenticate:api     |
+|        | GET|HEAD  | api/user                      |                  | Closure                                                          | api                                      |
+|        |           |                               |                  |                                                                  | App\Http\Middleware\Authenticate:sanctum |
+|        | GET|HEAD  | sanctum/csrf-cookie           |                  | Laravel\Sanctum\Http\Controllers\CsrfCookieController@show       | web                                      |
++--------+-----------+-------------------------------+------------------+------------------------------------------------------------------+------------------------------------------+
